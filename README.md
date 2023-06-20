@@ -1,4 +1,3 @@
-Annodoc: annotation documentation support system
-================================================
+# Annotation documentation for physical protein interactions
 
-Home page: <http://spyysalo.github.io/annodoc>
+https://katnastou.github.io/annodoc-physical-protein-interaction-corpus/
