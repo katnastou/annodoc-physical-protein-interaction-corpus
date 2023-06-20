@@ -15,11 +15,11 @@ markdown_ext: md
 
 # Site settings
 
-name: Annodoc
-baseurl: "/annodoc"
-homeurl: "https://github.com/spyysalo/annodoc/"
-editurl: "https://github.com/spyysalo/annodoc/edit/gh-pages"
-issueurl: "https://github.com/spyysalo/annodoc/issues"
+name: Physical interaction annotation docs
+baseurl: "/annodoc-physical-protein-interaction-corpus"
+homeurl: "https://katnastou.github.io/annodoc-physical-protein-interaction-corpus/"
+editurl: "https://github.com/katnastou/annodoc-physical-protein-interaction-corpus/edit/gh-pages"
+issueurl: "https://github.com/katnastou/annodoc-physical-protein-interaction-corpus/issues"
 
 ##############################################################################
 
