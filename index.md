@@ -70,7 +70,7 @@ R1	Complex_formation Arg1:T1 Arg2:T2
 
 ### Named Entity annotation rules
 
-1. Entity name mentions like _ubiquitin_ or reporter genes (e.g. _GFP_) which are _GGPs_ but are in the blocklist of our NER system, will be assigned the __blacklisted__ attribute
+1. Entity name mentions like _ubiquitin_ or reporter genes (e.g. _GFP_) which are _GGPs_ but are in the blocklist of our NER system, will be assigned the __blacklisted__ attribute (see next section)
 2. Histones: 
   * Tag _H2_, _H3_ etc. when they appear standalone
   * Include _histone_ in the span when it appears with one of the names (e.g. _histone H3_)
@@ -80,7 +80,7 @@ R1	Complex_formation Arg1:T1 Arg2:T2
 3. _Amino acid residues_ should not be annotated as __Chemical__ when they are part of a polypeptide chain
 4. _Glycosylphosphatidylinosiol_ (GPI) should not be annotated as __Chemical__ as it cannot be a standalone chemical
 5. Determiners like _the_ should not be included in the entity span of __GGP__, __Protein-containing complex__ and __Protein family or group__
-6. Mutants of specific proteins will receive __GGP__ annotations and an _Entity Attribute_: __Mutant__
+6. _Domains_ and other _protein regions_ should __NOT__ be annotated as _GGP_.
 7. In order for the annotated text to be as close as possible to the ideal NE annotation produced by the NER system, cases where only part-of __mutant names__ are standalone entities, only these mentions should be annotated, e.g. __sam35__ and __NOT__ _sam35-2_ is annotated as a GGP in the following example
 ~~~ann
 The essential protein Sam35 was addressed through use of the temperature-sensitive yeast mutant sam35-2.
@@ -101,10 +101,18 @@ full-length NRIF3 fused to the DNA-binding domain of Gal4
 T1	GGP 12 17	NRIF3
 T2	GGP 53 57	Gal4
 ~~~
-11. _Domains_ and other _protein regions_ should __NOT__ be annotated as _GGP_.
-12. _FLAG_ and _6xHis_ are polypeptide protein tags and should receive an _OOS_ annotation, or should not be annotated at all.
-13. _ATP_ and _ADP_ are annotated as __OOS__.
-14. _GTP_ and _GDP_ are annotated as __Chemicals__ due to their function in protein signalling.
+11. _FLAG_ and _6xHis_ are polypeptide protein tags and should receive an _OOS_ annotation, or should not be annotated at all.
+12. _ATP_ and _ADP_ are annotated as __OOS__.
+13. _GTP_ and _GDP_ are annotated as __Chemicals__ due to their function in protein signalling.
+
+### Named Entity Attributes
+
+There are 5 Named Entity (NE) attributes in the corpus:
+1. __Mutant__: used to mark NEs that are mutated forms or mutants of the annotated entity
+2. __Fusion__: used to mark NEs which are part of fusion proteins
+3. __Non-coding__: used as an attribute for GGPs to denote functional non-coding RNA molecules (e.g. transfer RNA, microRNA, piRNA, ribosomal RNA, and regulatory RNAs) among others.
+4. __Small protein post-translation modification__: used as an attribute to denote GGPs that are covalently attached to other proteins as a result of a post-translational modification (e.g. ubiquitin, SUMO)
+5. __Blacklisted__: used to denote NEs that belong to one of the annotated NE types, but which are not detected by our [dictionary-based NER system](https://www.biorxiv.org/content/10.1101/067132v1), since they are part of its blacklist. 
 
 ### Specific rules for complexes/families and plural form annotations
 
