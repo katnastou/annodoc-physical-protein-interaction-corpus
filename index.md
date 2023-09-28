@@ -3,14 +3,14 @@ layout: entry
 title: Documentation for Physical Protein Interaction Relationship Annotation of the ComplexTome corpus and trigger word annotation
 ---
 
-# Relationship Annotation
+## Relationship Annotation
 
-## General guidelines
+### General guidelines
 
 * Annotations should be made according to the annotator’s best understanding of the __author’s intended meaning in context__. For example, relations expressed using ambiguous verbs such as __"associate"__ that express complex formation in some contexts but not others should be annotated if and only if the annotator interprets the authors as intending to describe complex formation. The annotators should only use the text excerpt they have available to make this judgement.
 * Annotators should treat all named entities as being __masked__. __Masked__ is a term adopted from large language model training, and it means that the entities should be treated as if they are not visible, but the annotators knows their place in text (e.g. _mutations in **p53** have been associated with lung cancer_ should be treated as _mutations in **\[MASK\]** have been associated with lung cancer_).  This means that annotators shouldn't annotate relationships between entities just based on their names, when they would be unable to make the same annotations for two other entities. 
 
-## Complex formation definition
+### Complex formation definition
 
 Undirected binary relation associating two proteins that form a complex. Annotated for any statement implying the existence of a complex, including statements explicitly discussing the dissociation of a complex.
 Relevant gene ontology terms:
@@ -20,7 +20,7 @@ Relevant gene ontology terms:
 
 Note that by contrast to the scope of [GO:0032991](http://amigo.geneontology.org/amigo/term/GO:0032991) (__protein-containing complex__) and related terms, the annotated complex formation relation is restricted to cases where both of the associated constituents are _proteins_, _protein complexes_, _protein families_, _groups of proteins_ or _chemicals_.
 
-### Detailed guidelines
+#### Detailed guidelines
 
 1. Complex formation relations can be annotated between two different protein mentions, but also between the same mentions, when the masked entities could be viewed as two different entities. However, statements such as “homodimerization of A” __are not annotated__ as _Complex formation_, since self-loops are not annotated in the corpus. 
 2. Complexes of more than two proteins are annotated by creating __all binary relations__ between the components.
@@ -65,12 +65,12 @@ R1	Complex_formation Arg1:T1 Arg2:T2
 18. The interactions between members of __transient intermediate complexes__ as part of catalytic reactions should __NOT__ be annotated neither between Protein-Protein (e.g. kinase-substrate), nor between Protein-Chemical entities.
 19. __Chemical A modulates, inhibits, acts as an agonist/antagonist for Protein B__: A __Complex formation__ relationship between A and B should be annotated (this rule applies mostly to drugs.)
 
-### Negation and speculation
+#### Negation and speculation
 
 1. Statements explicitly __denying__ the formation of a complex (e.g. “A does not bind B”) are __not annotated__ in any way. However, if the negated statement is qualified with conditions in a way that implies that the proteins would normally form a complex, the statement is annotated as if the negation were absent (e.g. _“When A is phosphorylated, it fails to form a complex with B”_).
 2. Statements expressed __speculatively__ or with __hedging__ expressions (e.g. _“may form a complex”_) are __annotated__ identically to affirmative statements (in effect, __speculation and hedging are ignored__).
 
-### Named Entity annotation rules
+#### Named Entity annotation rules
 
 1. Entity name mentions like _ubiquitin_ or reporter genes (e.g. _GFP_) which are _GGPs_ but are in the blocklist of our NER system, will be assigned the __blacklisted__ attribute (see next section)
 2. Histones: 
@@ -107,7 +107,7 @@ T2	GGP 53 57	Gal4
 12. _ATP_ and _ADP_ are annotated as __OOS__.
 13. _GTP_ and _GDP_ are annotated as __Chemicals__ due to their function in protein signalling.
 
-### Named Entity Attributes
+#### Named Entity Attributes
 
 There are 5 Named Entity (NE) attributes in the corpus:
 1. __Mutant__: used to mark NEs that are mutated forms or mutants of the annotated entity
@@ -116,7 +116,7 @@ There are 5 Named Entity (NE) attributes in the corpus:
 4. __Small protein post-translation modification__: used as an attribute to denote GGPs that are covalently attached to other proteins as a result of a post-translational modification (e.g. ubiquitin, SUMO)
 5. __Blacklisted__: used to denote NEs that belong to one of the annotated NE types, but which are not detected by our [dictionary-based NER system](https://www.biorxiv.org/content/10.1101/067132v1), since they are part of its blacklist. 
 
-### Specific rules for complexes/families and plural form annotations
+#### Specific rules for complexes/families and plural form annotations
 
 * If a term is in Gene Ontology and is assigned a [__Protein-containing complex__](http://amigo.geneontology.org/amigo/term/GO:0032991) annotation then it is considered a Complex in this annotation effort.
 * If a term is found in Gene ontology but it is NOT a __protein-containing complex__, then it will __NOT__ be considered a _Complex_ in this effort
@@ -126,16 +126,16 @@ There are 5 Named Entity (NE) attributes in the corpus:
 * The words _“complex”_, _“family”_ and _"group"_ should __not__ be part of the entity annotations.
 * Annotations should be applied to all variants of a name: e.g. __NF kappaB__, __NF-kappaB__, __NFkappaB__ should all be marked as __Protein-containing complex__
 
-# Trigger word annotation
+## Trigger word annotation
 
-## General guidelines
+### General guidelines
 
 * When annotators have already identified a __Complex formation__ relationship in text, it is possible to also annotate the specific word(s) which led them to make this annotation. The words that allow their interpretation of a relationship as __Complex formation__ are called trigger words. An example of a trigger word annotation is shown below:
 ~~~ann
 CDK7 binds to SF-1
 T1	Protein 0 4	CDK7
-T2	Protein 15 18	SF-1
-T3	Trigger 6 10	binds
+T2	Protein 14 18	SF-1
+T3	Trigger 5 10	binds
 ~~~
 * If two or more trigger words were considered as equivalently valid they will all be annotated.
 ~~~ann
@@ -143,14 +143,14 @@ The CD40-TRAF2 interaction
 T1	Protein 5 9	CD40
 T2	Protein 11 15	TRAF2
 T3	Trigger 10 11	-
-T4	Trigger 17 27	interaction
+T3	Trigger 16 27	interaction
 ~~~
 * If a trigger word is discontinuous, all the constituents of the trigger words will be annotated.
 ~~~ann
 A two-hybrid screen implicated PAK1 as an OSR1 target.
 T1	Protein 31 35	PAK1
 T2	Protein 42 46	OSR1
-T3	Trigger 3 20	two-hybrid screen
+T3	Trigger 2 19	two-hybrid screen
 T4	Trigger 47 53	target
 ~~~
 
