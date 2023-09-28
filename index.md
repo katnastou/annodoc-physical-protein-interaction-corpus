@@ -140,10 +140,10 @@ T3	Trigger 5 10	binds
 * If two or more trigger words were considered as equivalently valid they will all be annotated.
 ~~~ann
 The CD40-TRAF2 interaction
-T1	Protein 5 9	CD40
-T2	Protein 11 15	TRAF2
-T3	Trigger 10 11	-
-T3	Trigger 16 27	interaction
+T1	Protein 4 8	CD40
+T2	Protein 9 13	TRAF2
+T3	Trigger 8 9	-
+T4	Trigger 14 26	interaction
 ~~~
 * If a trigger word is discontinuous, all the constituents of the trigger words will be annotated.
 ~~~ann
