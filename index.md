@@ -141,7 +141,7 @@ T3	Trigger 5 10	binds
 ~~~ann
 The CD40-TRAF2 interaction
 T1	Protein 4 8	CD40
-T2	Protein 9 13	TRAF2
+T2	Protein 9 14	TRAF2
 T3	Trigger 8 9	-
 T4	Trigger 14 26	interaction
 ~~~
