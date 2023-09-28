@@ -1,7 +1,9 @@
 ---
 layout: entry
-title: Documentation for Physical Protein Interaction Relation Annotation
+title: Documentation for Physical Protein Interaction Relationship Annotation of the ComplexTome corpus and trigger word annotation
 ---
+
+# Relationship Annotation
 
 ## General guidelines
 
@@ -123,5 +125,34 @@ There are 5 Named Entity (NE) attributes in the corpus:
 * For cases where it is difficult to distinguish [_family_](pfam.xfam.org/family/PF00110#tabview=tab6) from [_domain_](pfam.xfam.org/family/PF05207#tabview=tab6) mentions, the field type in Pfam could be used to aid in making a decision (if available)
 * The words _“complex”_, _“family”_ and _"group"_ should __not__ be part of the entity annotations.
 * Annotations should be applied to all variants of a name: e.g. __NF kappaB__, __NF-kappaB__, __NFkappaB__ should all be marked as __Protein-containing complex__
+
+# Trigger word annotation
+
+## General guidelines
+
+* When annotators have already identified a __Complex formation__ relationship in text, it is possible to also annotate the specific word(s) which led them to make this annotation. The words that allow their interpretation of a relationship as __Complex formation__ are called trigger words. An example of a trigger word annotation is shown below:
+~~~ann
+CDK7 binds to SF-1
+T1	Protein 0 4	CDK7
+T2	Protein 15 18	SF-1
+T3	Trigger 6 10	binds
+~~~
+* If two or more trigger words were considered as equivalently valid they will all be annotated.
+~~~ann
+The CD40-TRAF2 interaction
+T1	Protein 5 9	CD40
+T2	Protein 11 15	TRAF2
+T3	Trigger 10 11	-
+T4	Trigger 17 27	interaction
+~~~
+* If a trigger word is discontinuous, all the constituents of the trigger words will be annotated.
+~~~ann
+A two-hybrid screen implicated PAK1 as an OSR1 target.
+T1	Protein 31 35	PAK1
+T2	Protein 42 46	OSR1
+T3	Trigger 3 20	two-hybrid screen
+T4	Trigger 47 53	target
+~~~
+
 
 For information on Annodoc, see <http://spyysalo.github.io/annodoc/>.
