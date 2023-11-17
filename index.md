@@ -72,7 +72,7 @@ R1	Complex_formation Arg1:T1 Arg2:T2
 
 #### Named Entity annotation rules
 
-1. Entity name mentions like _ubiquitin_ or reporter genes (e.g. _GFP_) which are _GGPs_ but are in the blocklist of our NER system, will be assigned the __blacklisted__ attribute (see next section)
+1. Entity name mentions like _ubiquitin_ or reporter genes (e.g. _GFP_) which are _GGPs_ but are in the blocklist of our NER system, will be assigned the __blocklisted__ attribute (see next section)
 2. Histones: 
   * Tag _H2_, _H3_ etc. when they appear standalone
   * Include _histone_ in the span when it appears with one of the names (e.g. _histone H3_)
@@ -97,7 +97,7 @@ T2	GGP 43 47	rex1
 ~~~
 8. Named entities that are part of antibodies should be annotated as the corresponding NE type and should receive a _Note: antibody_.
 9. rRNAs and tRNAs are currently annotated as __GGP__ with __noncoding__ attribute.
-10. __Fusion proteins__ should be treated as two entities for the purposes of annotation and during the creation of the training dataset. These should get an _Entity Attribute_: __Fusion__. The reporter protein in fusion should get an attribute: __blacklisted__ if it is not detect by tagger. E.g. in the example below __NRIF3__ will receive an _Entity Attribute_: __Fusion__ and __Gal4__ will receive an _Entity Attribute_: __Fusion__ _Entity Attribute_: __Blacklisted__:
+10. __Fusion proteins__ should be treated as two entities for the purposes of annotation and during the creation of the training dataset. These should get an _Entity Attribute_: __Fusion__. The reporter protein in fusion should get an attribute: __blocklisted__ if it is not detect by tagger. E.g. in the example below __NRIF3__ will receive an _Entity Attribute_: __Fusion__ and __Gal4__ will receive an _Entity Attribute_: __Fusion__ _Entity Attribute_: __Blocklisted__:
 ~~~ ann
 full-length NRIF3 fused to the DNA-binding domain of Gal4
 T1	GGP 12 17	NRIF3
@@ -114,7 +114,7 @@ There are 5 Named Entity (NE) attributes in the corpus:
 2. __Fusion__: used to mark NEs which are part of fusion proteins
 3. __Non-coding__: used as an attribute for GGPs to denote functional non-coding RNA molecules (e.g. transfer RNA, microRNA, piRNA, ribosomal RNA, and regulatory RNAs) among others.
 4. __Small protein post-translation modification__: used as an attribute to denote GGPs that are covalently attached to other proteins as a result of a post-translational modification (e.g. ubiquitin, SUMO)
-5. __Blacklisted__: used to denote NEs that belong to one of the annotated NE types, but which are not detected by our [dictionary-based NER system](https://www.biorxiv.org/content/10.1101/067132v1), since they are part of its blacklist. 
+5. __Blocklisted__: used to denote NEs that belong to one of the annotated NE types, but which are not detected by our [dictionary-based NER system](https://www.biorxiv.org/content/10.1101/067132v1), since they are part of its blocklist. 
 
 #### Specific rules for complexes/families and plural form annotations
 
