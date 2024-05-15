@@ -154,5 +154,12 @@ T3	Trigger 2 19	two-hybrid screen
 T4	Trigger 47 53	target
 ~~~
 
+## Annotation process
+
+
+## Setting up a BRAT server
+
+The [Zenodo project associated with ComplexTome](https://zenodo.org/doi/10.5281/zenodo.11198826) contains both [ComplexTome in BRAT format](https://zenodo.org/api/files/72327c8e-b14b-4d83-a08c-ab57cc24ec6f/ComplexTome.tar.gz) and the [trigger word corpus in BRAT format](https://zenodo.org/api/records/11198826/files/trigger_word_corpus.tar.gz/content) as well as test set predictions for both [ComplexTome](https://zenodo.org/api/records/11198826/files/test-set-predictions-RE.tar.gz/content) and the [trigger word corpus](https://zenodo.org/api/records/11198826/files/test-set-predictions-trigger.tar.gz/content). You can view all these files by installing BRAT, following these [instructions](https://brat.nlplab.org/installation.html). Then you can download and copy all the data hosted in Zenodo, using the links provided above, and add them in the `data` directory inside the directory where you installed BRAT. For more details on how to use BRAT please look at the [manual page](https://brat.nlplab.org/manual.html).
+
 
 For information on Annodoc, see <http://spyysalo.github.io/annodoc/>.
