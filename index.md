@@ -156,6 +156,24 @@ T4	Trigger 47 53	target
 
 ## Annotation process
 
+The first step towards the annotation of ComplexTome was Named Entity (NE) annotation. Both annotators annotated the four NE types mentioned above (Protein, Chemical, Complex, and Family using the [Named Entity annotation rules](#named-entity-annotation-rules) above. 
+We used an automated [dictionary-based NER system](https://ceur-ws.org/Vol-1747/BIT102_ICBO2016.pdf) to assist the manual annotation process. The system detects Protein names in text and helps speed up the process of NE annotation. Since, the system doesn't have a perfect precision or recall, the annotators manually corrected any errors produced by the NER system, and added annotations for all the aforementioned NE types. It is important to note the main objective of this study does not revolve around developing a corpus specifically for biomedical NER. Therefore, no Inter-Annotator Agreement (IAA) measurements are reported for this specific task, in contrast to the evaluation of relations. For the same reasons, no NE normalization has been performed.
+
+After the annotation of NEs in all documents was complete, the annotators could proceed to relation annotation to calculate inter-annotator agreement. No changes to NE annotations were performed at this stage to allow for correct evaluation statistic measurements. 
+The annotators were provided with 20 common documents for each round of IAA calculations. In the first round of IAA, the annotators were provided with 20 documents from the [BioNLP ST 2009 development set](https://github.com/spyysalo/binarize-events/tree/master/data/bionlp09_shared_task_development_data_rev1) and an initial set of guidelines corresponding to the [General guidelines](#general-guidelines) and [Complex formation definition](#complex-formation-definition) guidelines in this document. They were then asked to annotate to the best of their ability and note any more rules they think are relevant. 
+
+We quantified the Inter-Annotator-Agreement (IAA) by calculating Cohen’s kappa for the pair of annotators. Cohen’s kappa is defined as kappa = (Po – Pe)/(1-Pe). Po refers to the observed probability of agreement between two annotators, whereas Pe is the expected probability of agreement by random chance. For the first round of IAA Cohen's kappa was &kappa = 0.90. 
+
+The annotators reviewed their disagreements which led to updating the [detailed guidelines](#detailed-guidelines) section to ensure their agreement during the next rounds of IAA and the corpus annotation. 
+
+After updating the guidelines the annotators were provided with an additional set of 20 documents from the BioNLP ST 2009 development set and their IAA was calculated again and was found to be &kappa = 0.93. 
+
+After further updates to the [detailed guidelines](#detailed-guidelines) the annotators moved to the third round of IAA. This time they were provided with 30 documents from the 400 full-text excerpts extracted from resources enriched in positive relationships (see our [paper](https://www.biorxiv.org/content/10.1101/2023.12.10.570999v2) for more details). IAA was calculated (&kappa = 0.92) in this different set of documents and was found to be high. Annotators revisited their disagreements and updated the guidelines. 
+
+Since, in the previous three rounds of IAA, &kappa was always found to be very high, we decided to have one final round if its value was above 0.9. This time 20 documents from the 400 abstracts extracted from resources enriched in positive relationships were selected and annotated by both annotators. Their agreement was still very high (&kappa = 0.91) and that concluded the IAA process.
+
+During the entire period of corpus annotation, the two annotators remained in contact and had regular meetings to discuss difficult cases, when they encountered them. 
+
 
 ## Setting up a BRAT server
 
