@@ -168,7 +168,7 @@ After further updates to the [detailed guidelines](#detailed-guidelines) the ann
 
 Since, in the previous three rounds of IAA, κ was always  greater than 0.9, we decided to have one final round of IAA, if its value was again above 0.9. This time 20 documents from the 400 abstracts extracted from resources enriched in positive relationships were selected and annotated by both annotators. Their agreement was once again very high (κ = 0.91), and with that the IAA process concluded.
 
-After the IAA process was complete, and during the entire period of corpus annotation, the two annotators remained in contact and had regular meetings to discuss difficult cases, when they encountered them. Small updates to the [detailed guidelines](#detailed-guidelines) also took place during that time, as well as some updates on NE annotations when deemed necessary. 
+After the IAA process was complete, and during the entire period of corpus annotation, the two annotators remained in contact and had weekly meetings to discuss difficult cases, when they encountered them. Updates to the [detailed guidelines](#detailed-guidelines) also took place during that time, as well as some updates on NE annotations when deemed necessary. 
 
 
 ## Setting up a BRAT server
